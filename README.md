@@ -68,13 +68,13 @@ CC Switch (Routing)        CCR Tray (Process Lifecycle)
 
 ### Install
 
-Download the latest installer from [Releases](https://github.com/liu4g/ccr-tray/releases) and run it.
+Download the latest installer from [Releases](https://github.com/zv5525ngdh-glitch/ccr-tray/releases) and run it.
 
 Or build from source:
 
 ```powershell
 # Prerequisites: Rust, Node.js, Visual Studio Build Tools
-git clone https://github.com/liu4g/ccr-tray.git
+git clone https://github.com/zv5525ngdh-glitch/ccr-tray.git
 cd ccr-tray
 npm install
 npx tauri build
@@ -141,13 +141,13 @@ CCR Tray 是一个轻量级的 **Windows 系统托盘应用**，用于管理 [Cl
 
 ### 安装
 
-从 [Releases](https://github.com/liu4g/ccr-tray/releases) 下载最新安装包运行即可。
+从 [Releases](https://github.com/zv5525ngdh-glitch/ccr-tray/releases) 下载最新安装包运行即可。
 
 或从源码构建：
 
 ```powershell
 # 前置：Rust, Node.js, Visual Studio Build Tools
-git clone https://github.com/liu4g/ccr-tray.git
+git clone https://github.com/zv5525ngdh-glitch/ccr-tray.git
 cd ccr-tray
 npm install
 npx tauri build
