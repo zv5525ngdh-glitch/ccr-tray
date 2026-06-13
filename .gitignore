@@ -1,0 +1,23 @@
+# Rust
+src-tauri/target/
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PM2 logs
+*.log
+
+# Tauri
+src-tauri/icons/icon_data.txt
+
+# Env
+.env

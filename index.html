@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCR Tray - 配置</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>⚙️ CCR Tray 配置</h1>
+      <div id="status-bar">
+        <span id="status-indicator">🔴 检查中...</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="config-section">
+        <h2>端口设置</h2>
+        <div class="form-group">
+          <label for="ccr_port">CCR 端口</label>
+          <input type="number" id="ccr_port" min="1024" max="65535" />
+        </div>
+        <div class="form-group">
+          <label for="proxy_port">Proxy 端口</label>
+          <input type="number" id="proxy_port" min="1024" max="65535" />
+        </div>
+        <div class="form-group">
+          <label for="ollama_port">Ollama 端口</label>
+          <input type="number" id="ollama_port" min="1024" max="65535" />
+        </div>
+      </section>
+
+      <section class="config-section">
+        <h2>模型设置</h2>
+        <div class="form-group">
+          <label for="ollama_model">Ollama 视觉模型</label>
+          <input type="text" id="ollama_model" />
+        </div>
+        <div class="form-group">
+          <label for="temperature">Temperature</label>
+          <input type="number" id="temperature" min="0" max="2" step="0.1" />
+        </div>
+      </section>
+
+      <section class="config-section">
+        <h2>进程控制</h2>
+        <div class="button-row">
+          <button id="btn-start" class="btn btn-primary">▶ 启动服务</button>
+          <button id="btn-stop" class="btn btn-danger">■ 停止服务</button>
+          <button id="btn-refresh" class="btn btn-secondary">🔄 刷新状态</button>
+        </div>
+        <div id="process-detail" class="process-detail">
+          <p>CCR: <span id="ccr-status">--</span></p>
+          <p>Proxy: <span id="proxy-status">--</span></p>
+          <p>Ollama: <span id="ollama-status">--</span></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <button id="btn-save" class="btn btn-primary">💾 保存配置</button>
+      <button id="btn-close" class="btn btn-secondary">关闭</button>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

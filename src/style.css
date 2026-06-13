@@ -1,0 +1,168 @@
+:root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --surface2: #0f3460;
+  --primary: #e94560;
+  --primary-hover: #ff6b81;
+  --danger: #c0392b;
+  --danger-hover: #e74c3c;
+  --text: #eaeaea;
+  --text-muted: #a0a0b0;
+  --border: #2a2a4a;
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  user-select: none;
+  overflow: hidden;
+}
+
+#app {
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+#status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#status-indicator {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.config-section {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.config-section h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex: 0 0 120px;
+}
+
+.form-group input {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: var(--danger-hover);
+}
+
+.btn-secondary {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--border);
+}
+
+.process-detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.process-detail span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+footer {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
