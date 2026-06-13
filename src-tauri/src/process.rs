@@ -1,5 +1,13 @@
 use serde::{Deserialize, Serialize};
 use std::process::Command;
+use std::net::TcpStream;
+use std::time::Duration;
+
+// Windows-only: suppress console window flash
+#[cfg(windows)]
+use std::os::windows::process::CommandExt;
+
+const CREATE_NO_WINDOW: u32 = 0x08000000;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ProcessStatus {
@@ -54,24 +62,24 @@ fn pm2_cmd() -> String {
 }
 
 fn run_pm2(args: &[&str]) -> Result<String, String> {
-    let output = Command::new(pm2_cmd())
-        .args(args)
-        .output()
+    let mut cmd = Command::new(pm2_cmd());
+    cmd.args(args);
+    #[cfg(windows)]
+    {
+        cmd.creation_flags(CREATE_NO_WINDOW);
+    }
+    let output = cmd.output()
         .map_err(|e| format!("pm2 命令执行失败: {}", e))?;
     Ok(String::from_utf8_lossy(&output.stdout).to_string())
 }
 
+/// Native TCP connect check — zero shell, zero flash
 fn check_port(port: u16) -> bool {
-    let output = Command::new("netstat")
-        .args(["-ano"])
-        .output();
-    match output {
-        Ok(o) => {
-            let stdout = String::from_utf8_lossy(&o.stdout);
-            stdout.lines().any(|line| line.contains(&format!(":{} ", port)) && line.contains("LISTENING"))
-        }
-        Err(_) => false,
-    }
+    TcpStream::connect_timeout(
+        &format!("127.0.0.1:{}", port).parse().unwrap(),
+        Duration::from_millis(200),
+    )
+    .is_ok()
 }
 
 pub fn get_services_status(ccr_port: u16, proxy_port: u16, ollama_port: u16) -> ServicesStatus {
